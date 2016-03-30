@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Пятнашка</string>
+    <string name="continued">Продолжить</string>
+    <string name="header_new_game">Соберите числа в ячейках в последовательности приведенной ниже. Нажмите кнопку ИГРА для продолжения.</string>
+    <string name="header_pause">Пауза в игре...</string>
+    <string name="header_start">Игра началась! Нажмите кнопку ПАУЗА для перерыва.</string>
+    <string name="header_wellcome">Добро пожаловать! Нажмите кнопку СТАРТ.</string>
+    <string name="info">Информация</string>
+    <string name="new_game">Игра</string>
+    <string name="pause">Пауза</string>
+    <string name="start">Старт</string>
+    <string name="steps">Шаги:</string>
+    <string name="time">Время:</string>
+    <string name="header_win">Вы выиграли! Поздравляэм! Нажмите кнопку ИГРА для продолжения.</string>
+</resources>

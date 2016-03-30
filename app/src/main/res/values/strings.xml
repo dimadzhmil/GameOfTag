@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Game Of Tag</string>
+    <string name="header_wellcome">Wellcome! Push the button START.</string>
+    <string name="header_new_game">Collect cells in number in the sequence shown below. Push the button GAME to start.</string>
+    <string name="header_start">Game started! Push the button PAUSE for  break game.</string>
+    <string name="header_pause">Game RESUME...</string>
+    <string name="new_game">Game</string>
+    <string name="start">Start</string>
+    <string name="pause">Pause</string>
+    <string name="info">Info</string>
+    <string name="continued">Continue</string>
+    <string name="time">Time:</string>
+    <string name="steps">Steps:</string>
+    <string name="header_win">You win! Congatulation!  Push the button GAME to start.</string>
+</resources>

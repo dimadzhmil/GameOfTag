@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">П\'ятнашка</string>
+    <string name="continued">Продовжити</string>
+    <string name="header_new_game">Зберіть числа в комірках як приведено нижче. Натисніть кнопку ГРА для продовження.</string>
+    <string name="header_pause">Пауза в грі...</string>
+    <string name="header_start">Гра почалась! Натисніть кнопку ПАУЗА для відпочинку.</string>
+    <string name="header_wellcome">Ласкаво просимо!  Натисніть кнопку СТАРТ.</string>
+    <string name="info">Інформація</string>
+    <string name="new_game">Гра</string>
+    <string name="pause">Пауза</string>
+    <string name="start">Старт</string>
+    <string name="steps">Кроки:</string>
+    <string name="time">Час:</string>
+    <string name="header_win">Ви виграли! Вітаємо! Натисніть кнопку ГРА для продовження.</string>
+</resources>
