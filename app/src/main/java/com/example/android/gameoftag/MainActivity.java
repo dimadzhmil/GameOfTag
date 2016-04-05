@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private Timer timer;
     private TimerTask task;
     private long pauseTime;
+    private boolean isTimeRunning = false;
+    private boolean isTimePaused = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
             startTime = savedInstanceState.getLong("StartTime");
             pauseTime = savedInstanceState.getLong("PauseTime");
             arrayOfNumbers = savedInstanceState.getIntArray("ArrayOfNumbers");
+            isTimeRunning = savedInstanceState.getBoolean("IsTimeRunning");
+            isTimePaused = savedInstanceState.getBoolean("IsTimePaused");
+
             if (headerMessage.equals(getString(R.string.header_wellcome))) {
                 Toast.makeText(this, "header_wellcome", Toast.LENGTH_SHORT).show();
             }
@@ -51,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
             if (headerMessage.equals(getString(R.string.header_start))) {
                 displayShuffleArray(arrayOfNumbers, arrayOfTag);
                 changeTextButton(R.id.start, R.string.pause);
+                Toast.makeText(this, "onStartBundle: Running->" + isTimeRunning + " Pause->" + isTimePaused, Toast.LENGTH_SHORT).show();
             }
             if (headerMessage.equals(getString(R.string.header_pause))) {
                 displayShuffleArray(arrayOfNumbers, arrayOfTag);
@@ -59,16 +65,16 @@ public class MainActivity extends AppCompatActivity {
                 mainLayout.setVisibility(View.INVISIBLE);
                 changeTextHeader(R.id.main_text, R.string.header_pause);
                 if (startTime != 0) {
+                    pauseTime = System.currentTimeMillis() - startTime;
                     timer.cancel();
-                    timer.purge();
+                    isTimeRunning = false;
                 }
+                Toast.makeText(this, "onPauseBundle: Running->" + isTimeRunning + " Pause->" + isTimePaused, Toast.LENGTH_SHORT).show();
             }
             if (headerMessage.equals(getString(R.string.header_win))) {
                 displaySortArray();
                 changeTextHeader(R.id.main_text, R.string.header_win);
                 changeTextButton(R.id.start, R.string.pause);
-                timer.cancel();
-                timer.purge();
             }
         }
     }
@@ -82,26 +88,38 @@ public class MainActivity extends AppCompatActivity {
         outState.putLong("StartTime", startTime);
         outState.putLong("PauseTime", pauseTime);
         outState.putIntArray("ArrayOfNumbers", arrayOfNumbers);
+        outState.putBoolean("IsTimeRunning", isTimeRunning);
+        outState.putBoolean("IsTimePaused", isTimePaused);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        Toast.makeText(this, "onPause: Running->" + isTimeRunning + " Pause->" + isTimePaused, Toast.LENGTH_SHORT).show();
         if (startTime != 0) {
-//            task.cancel();
-            timer.cancel();
-            timer.purge();
-            pauseTime = System.currentTimeMillis() - startTime;
+            if (isTimeRunning) {
+                timer.cancel();
+                isTimeRunning = false;
+                pauseTime = System.currentTimeMillis() - startTime;
+            } else {
+                if (!isTimePaused) {
+                    timer.cancel();
+                    isTimeRunning = false;
+                    isTimePaused = true;
+                }
+            }
         }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (startTime != 0) {
+        Toast.makeText(this, "onResume: Running->" + isTimeRunning + " Pause->" + isTimePaused, Toast.LENGTH_SHORT).show();
+        if ((startTime != 0) && (!isTimePaused) && (!isTimeRunning)) {
             startTime = System.currentTimeMillis() - pauseTime;
             createTimer();
         }
+        startTime = System.currentTimeMillis() - pauseTime;
     }
 
     private void createTimer() {
@@ -113,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         timer.schedule(task, 0, 1000);
+        isTimeRunning = true;
     }
 
     private void updateTimerView() {
@@ -190,11 +209,13 @@ public class MainActivity extends AppCompatActivity {
                 mainLayout.setVisibility(View.INVISIBLE);
                 changeTextHeader(R.id.main_text, R.string.header_pause);
                 timer.cancel();
-                //timer.purge();
+                isTimeRunning = false;
+                isTimePaused = true;
                 pauseTime = System.currentTimeMillis() - startTime;
             } else {
                 mainLayout.setVisibility(View.VISIBLE);
                 changeTextHeader(R.id.main_text, R.string.header_start);
+                isTimePaused = false;
                 startTime = System.currentTimeMillis() - pauseTime;
                 createTimer();
             }
@@ -272,6 +293,7 @@ public class MainActivity extends AppCompatActivity {
             return number % 4;
         }
     }
+
     /*
     * Shuffle array of numbers from 1 to 16.
     */
@@ -364,6 +386,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "You win!", Toast.LENGTH_SHORT).show();
             task.cancel();
             timer.cancel();
+            isTimeRunning = false;
             changeEnabledButton(R.id.new_game);
             changeEnabledButton(R.id.start);
             changeTextHeader(R.id.main_text, R.string.header_win);
