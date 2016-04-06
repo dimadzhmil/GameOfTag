@@ -17,7 +17,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
-    private String headerMessage;
+    private String headerMessage = null;
     private int widthFree; // width current possition free cell
     private int heightFree; // height current possition free cell
     private int scaleOfTag = 5;
@@ -46,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
             arrayOfNumbers = savedInstanceState.getIntArray("ArrayOfNumbers");
             isTimeRunning = savedInstanceState.getBoolean("IsTimeRunning");
             isTimePaused = savedInstanceState.getBoolean("IsTimePaused");
-
+            if (savedInstanceState.getString("TimerMessage") != null) {
+                timerText.setText(savedInstanceState.getString("TimerMessage"));
+            }
             if (headerMessage.equals(getString(R.string.header_wellcome))) {
                 Toast.makeText(this, "header_wellcome", Toast.LENGTH_SHORT).show();
             }
@@ -64,17 +66,13 @@ public class MainActivity extends AppCompatActivity {
                 LinearLayout mainLayout = (LinearLayout) findViewById(R.id.array_tag);
                 mainLayout.setVisibility(View.INVISIBLE);
                 changeTextHeader(R.id.main_text, R.string.header_pause);
-                if (startTime != 0) {
-                    pauseTime = System.currentTimeMillis() - startTime;
-                    timer.cancel();
-                    isTimeRunning = false;
-                }
                 Toast.makeText(this, "onPauseBundle: Running->" + isTimeRunning + " Pause->" + isTimePaused, Toast.LENGTH_SHORT).show();
             }
             if (headerMessage.equals(getString(R.string.header_win))) {
                 displaySortArray();
                 changeTextHeader(R.id.main_text, R.string.header_win);
                 changeTextButton(R.id.start, R.string.pause);
+                displayIteratoins(getString(R.string.steps) + iterations);
             }
         }
     }
@@ -84,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         TextView textView = (TextView) findViewById(R.id.main_text);
         outState.putString("HeaderMessage", textView.getText().toString());
+        TextView textTime = (TextView) findViewById(R.id.timer);
+        outState.putString("TimerMessage", textTime.getText().toString());
         outState.putInt("Iterations", iterations);
         outState.putLong("StartTime", startTime);
         outState.putLong("PauseTime", pauseTime);
@@ -95,18 +95,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        Toast.makeText(this, "onPause: Running->" + isTimeRunning + " Pause->" + isTimePaused, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "onPause: Running->" + isTimeRunning + " Pause->" + isTimePaused, Toast.LENGTH_SHORT).show();
         if (startTime != 0) {
             if (isTimeRunning) {
                 timer.cancel();
                 isTimeRunning = false;
                 pauseTime = System.currentTimeMillis() - startTime;
-            } else {
-                if (!isTimePaused) {
-                    timer.cancel();
-                    isTimeRunning = false;
-                    isTimePaused = true;
-                }
             }
         }
     }
@@ -114,24 +108,28 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(this, "onResume: Running->" + isTimeRunning + " Pause->" + isTimePaused, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "onResume: Running->" + isTimeRunning + " Pause->" + isTimePaused, Toast.LENGTH_SHORT).show();
         if ((startTime != 0) && (!isTimePaused) && (!isTimeRunning)) {
             startTime = System.currentTimeMillis() - pauseTime;
             createTimer();
         }
-        startTime = System.currentTimeMillis() - pauseTime;
+        if ((startTime != 0) && (!isTimePaused) && (isTimeRunning)) {
+            startTime = System.currentTimeMillis() - pauseTime;
+        }
     }
 
     private void createTimer() {
-        timer = new Timer();
-        task = new TimerTask() {
-            @Override
-            public void run() {
-                updateTimerView();
-            }
-        };
-        timer.schedule(task, 0, 1000);
-        isTimeRunning = true;
+        if (!isTimePaused && !isTimeRunning) {
+            isTimeRunning = true;
+            timer = new Timer();
+            task = new TimerTask() {
+                @Override
+                public void run() {
+                    updateTimerView();
+                }
+            };
+            timer.schedule(task, 0, 1000);
+        }
     }
 
     private void updateTimerView() {
@@ -144,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
                 int seconds = (int) (milliseconds / 1000) % 60;
                 int minutes = (int) (milliseconds / (1000 * 60)) % 60;
 //                int hours = (int) (milliseconds / (1000 * 60 * 60)) % 24;
-
 
                 timerText.setText(getString(R.string.time) + String.format("%02d:%02d", minutes, seconds));
 
@@ -384,9 +381,9 @@ public class MainActivity extends AppCompatActivity {
         }
         if (isWinPossition) {
             Toast.makeText(this, "You win!", Toast.LENGTH_SHORT).show();
-            task.cancel();
             timer.cancel();
             isTimeRunning = false;
+            startTime = 0;
             changeEnabledButton(R.id.new_game);
             changeEnabledButton(R.id.start);
             changeTextHeader(R.id.main_text, R.string.header_win);
