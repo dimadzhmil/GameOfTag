@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 timerText.setText(savedInstanceState.getString("TimerMessage"));
             }
             if (headerMessage.equals(getString(R.string.header_wellcome))) {
-                Toast.makeText(this, "header_wellcome", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Change orientation", Toast.LENGTH_SHORT).show();
             }
             if (headerMessage.equals(getString(R.string.header_new_game))) {
                 displaySortArray();
@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
             if (headerMessage.equals(getString(R.string.header_start))) {
                 displayShuffleArray(arrayOfNumbers, arrayOfTag);
                 changeTextButton(R.id.start, R.string.pause);
-                Toast.makeText(this, "onStartBundle: Running->" + isTimeRunning + " Pause->" + isTimePaused, Toast.LENGTH_SHORT).show();
             }
             if (headerMessage.equals(getString(R.string.header_pause))) {
                 displayShuffleArray(arrayOfNumbers, arrayOfTag);
@@ -66,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
                 LinearLayout mainLayout = (LinearLayout) findViewById(R.id.array_tag);
                 mainLayout.setVisibility(View.INVISIBLE);
                 changeTextHeader(R.id.main_text, R.string.header_pause);
-                Toast.makeText(this, "onPauseBundle: Running->" + isTimeRunning + " Pause->" + isTimePaused, Toast.LENGTH_SHORT).show();
             }
             if (headerMessage.equals(getString(R.string.header_win))) {
                 displaySortArray();
@@ -95,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-//        Toast.makeText(this, "onPause: Running->" + isTimeRunning + " Pause->" + isTimePaused, Toast.LENGTH_SHORT).show();
         if (startTime != 0) {
             if (isTimeRunning) {
                 timer.cancel();
@@ -108,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-//        Toast.makeText(this, "onResume: Running->" + isTimeRunning + " Pause->" + isTimePaused, Toast.LENGTH_SHORT).show();
         if ((startTime != 0) && (!isTimePaused) && (!isTimeRunning)) {
             startTime = System.currentTimeMillis() - pauseTime;
             createTimer();
@@ -142,9 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 int seconds = (int) (milliseconds / 1000) % 60;
                 int minutes = (int) (milliseconds / (1000 * 60)) % 60;
 //                int hours = (int) (milliseconds / (1000 * 60 * 60)) % 24;
-
                 timerText.setText(getString(R.string.time) + String.format("%02d:%02d", minutes, seconds));
-
 //                timerText.setText(getString(R.string.time) +
 //                        String.valueOf(hours) + ":" +
 //                        String.valueOf(minutes) + ":" +
@@ -196,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-    * Change visibility Main Linear Layout
+    * Change visibility Main Linear Layout, when press the PAUSE button
      */
 
     public void changeVisibilityLayout(Button nameButton) {

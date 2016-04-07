@@ -13,4 +13,6 @@
     <string name="time">Time:</string>
     <string name="steps">Steps:</string>
     <string name="header_win">You win! Congatulation!  Push the button GAME to start.</string>
+    <string name="freecell" translatable="false">\#</string>
+    <string name="commoncell" translatable="false">\?</string>
 </resources>

@@ -27,7 +27,8 @@
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true">
+        android:layout_centerVertical="true"
+        android:background="@android:color/darker_gray">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -35,48 +36,16 @@
             android:orientation="vertical">
             <TextView
                 android:id="@+id/block11"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_bright"
-                android:text="\?"
-                android:textSize="45sp"
-                android:textAlignment="center"
-                android:onClick="moveTextView"/>
+                style="@style/PortraitCells" />
             <TextView
                 android:id="@+id/block21"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_bright"
-                android:text="\?"
-                android:textSize="45sp"
-                android:textAlignment="center"
-                android:onClick="moveTextView"/>
+                style="@style/PortraitCells" />
             <TextView
                 android:id="@+id/block31"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_bright"
-                android:text="\?"
-                android:textSize="45sp"
-                android:textAlignment="center"
-                android:onClick="moveTextView"/>
+                style="@style/PortraitCells" />
             <TextView
                 android:id="@+id/block41"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_bright"
-                android:text="\?"
-                android:textSize="45sp"
-                android:textAlignment="center"
-                android:onClick="moveTextView"/>
+                style="@style/PortraitCells" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
@@ -85,48 +54,16 @@
             android:orientation="vertical">
             <TextView
                 android:id="@+id/block12"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_bright"
-                android:text="\?"
-                android:textSize="45sp"
-                android:textAlignment="center"
-                android:onClick="moveTextView"/>
+                style="@style/PortraitCells" />
             <TextView
                 android:id="@+id/block22"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_bright"
-                android:text="\?"
-                android:textSize="45sp"
-                android:textAlignment="center"
-                android:onClick="moveTextView"/>
+                style="@style/PortraitCells" />
             <TextView
                 android:id="@+id/block32"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_bright"
-                android:text="\?"
-                android:textSize="45sp"
-                android:textAlignment="center"
-                android:onClick="moveTextView"/>
+                style="@style/PortraitCells" />
             <TextView
                 android:id="@+id/block42"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_bright"
-                android:text="\?"
-                android:textSize="45sp"
-                android:textAlignment="center"
-                android:onClick="moveTextView"/>
+                style="@style/PortraitCells" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
@@ -135,48 +72,16 @@
             android:orientation="vertical">
             <TextView
                 android:id="@+id/block13"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_bright"
-                android:text="\?"
-                android:textSize="45sp"
-                android:textAlignment="center"
-                android:onClick="moveTextView"/>
+                style="@style/PortraitCells" />
             <TextView
                 android:id="@+id/block23"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_bright"
-                android:text="\?"
-                android:textSize="45sp"
-                android:textAlignment="center"
-                android:onClick="moveTextView"/>
+                style="@style/PortraitCells" />
             <TextView
                 android:id="@+id/block33"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_bright"
-                android:text="\?"
-                android:textSize="45sp"
-                android:textAlignment="center"
-                android:onClick="moveTextView"/>
+                style="@style/PortraitCells" />
             <TextView
                 android:id="@+id/block43"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_bright"
-                android:text="\?"
-                android:textSize="45sp"
-                android:textAlignment="center"
-                android:onClick="moveTextView"/>
+                style="@style/PortraitCells" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
@@ -185,48 +90,18 @@
             android:orientation="vertical">
             <TextView
                 android:id="@+id/block14"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_bright"
-                android:text="\?"
-                android:textSize="45sp"
-                android:textAlignment="center"
-                android:onClick="moveTextView"/>
+                style="@style/PortraitCells" />
             <TextView
                 android:id="@+id/block24"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_bright"
-                android:text="\?"
-                android:textSize="45sp"
-                android:textAlignment="center"
-                android:onClick="moveTextView"/>
+                style="@style/PortraitCells" />
             <TextView
                 android:id="@+id/block34"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_bright"
-                android:text="\?"
-                android:textSize="45sp"
-                android:textAlignment="center"
-                android:onClick="moveTextView"/>
+                style="@style/PortraitCells" />
             <TextView
                 android:id="@+id/block44"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
+                style="@style/PortraitCells"
                 android:background="@android:color/holo_orange_light"
-                android:text="\#"
-                android:textSize="45sp"
-                android:textAlignment="center"
-                android:onClick="moveTextView"/>
+                android:text="@string/freecell" />
         </LinearLayout>
     </LinearLayout>
     <Button
