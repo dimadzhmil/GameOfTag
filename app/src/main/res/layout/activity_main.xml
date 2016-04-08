@@ -1,136 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.android.gameoftag.MainActivity">
+    android:fitsSystemWindows="true"
+    tools:context="com.example.android.myapplication.MainActivity">
 
-    <TextView
-        android:id="@+id/main_text"
-        android:text="@string/header_wellcome"
-        android:textSize="14sp"
-        android:textAlignment="center"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <LinearLayout
-        android:id="@+id/array_tag"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/main_text"
-        android:orientation="horizontal"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@android:color/darker_gray">
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/block11"
-                style="@style/PortraitCells" />
-            <TextView
-                android:id="@+id/block21"
-                style="@style/PortraitCells" />
-            <TextView
-                android:id="@+id/block31"
-                style="@style/PortraitCells" />
-            <TextView
-                android:id="@+id/block41"
-                style="@style/PortraitCells" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/block12"
-                style="@style/PortraitCells" />
-            <TextView
-                android:id="@+id/block22"
-                style="@style/PortraitCells" />
-            <TextView
-                android:id="@+id/block32"
-                style="@style/PortraitCells" />
-            <TextView
-                android:id="@+id/block42"
-                style="@style/PortraitCells" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/block13"
-                style="@style/PortraitCells" />
-            <TextView
-                android:id="@+id/block23"
-                style="@style/PortraitCells" />
-            <TextView
-                android:id="@+id/block33"
-                style="@style/PortraitCells" />
-            <TextView
-                android:id="@+id/block43"
-                style="@style/PortraitCells" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/block14"
-                style="@style/PortraitCells" />
-            <TextView
-                android:id="@+id/block24"
-                style="@style/PortraitCells" />
-            <TextView
-                android:id="@+id/block34"
-                style="@style/PortraitCells" />
-            <TextView
-                android:id="@+id/block44"
-                style="@style/PortraitCells"
-                android:background="@android:color/holo_orange_light"
-                android:text="@string/freecell" />
-        </LinearLayout>
-    </LinearLayout>
-    <Button
-        android:id="@+id/new_game"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/new_game"
-        android:layout_alignParentBottom="true"
-        android:onClick="shuffleOfTag"
-        android:enabled="false"/>
-    <Button
-        android:id="@+id/start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/start"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:onClick="resetOfTag"/>
-    <TextView
-        android:id="@+id/timer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Timer"
-        android:layout_above="@+id/new_game" />
-    <TextView
-        android:id="@+id/iterations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Iterations"
-        android:layout_alignParentRight="true"
-        android:layout_above="@+id/start" />
-</RelativeLayout>
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_main" />
+
+</android.support.design.widget.CoordinatorLayout>
