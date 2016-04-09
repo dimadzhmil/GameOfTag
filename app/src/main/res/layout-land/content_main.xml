@@ -31,10 +31,7 @@
         android:layout_below="@id/main_text"
         android:background="@android:color/darker_gray">
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            style="@style/VerticalLinearLayout">
             <TextView
                 android:id="@+id/block11"
                 style="@style/LandscapeCells" />
@@ -49,10 +46,7 @@
                 style="@style/LandscapeCells" />
         </LinearLayout>
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            style="@style/VerticalLinearLayout">
             <TextView
                 android:id="@+id/block12"
                 style="@style/LandscapeCells" />
@@ -67,10 +61,7 @@
                 style="@style/LandscapeCells" />
         </LinearLayout>
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            style="@style/VerticalLinearLayout">
             <TextView
                 android:id="@+id/block13"
                 style="@style/LandscapeCells" />
@@ -85,10 +76,7 @@
                 style="@style/LandscapeCells" />
         </LinearLayout>
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            style="@style/VerticalLinearLayout">
             <TextView
                 android:id="@+id/block14"
                 style="@style/LandscapeCells" />
@@ -122,16 +110,20 @@
         android:layout_alignParentRight="true"
         android:onClick="resetOfTag"/>
     <TextView
+        android:id="@+id/timer"
+        android:layout_above="@+id/new_game"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Timer"
-        android:id="@+id/timer"
-        android:layout_above="@+id/new_game" />
+        android:textColor="@android:color/holo_red_light"
+        android:textAppearance="?android:textAppearanceSmall"/>
     <TextView
+        android:id="@+id/iterations"
+        android:layout_above="@+id/start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Iterations"
-        android:id="@+id/iterations"
         android:layout_alignParentRight="true"
-        android:layout_above="@+id/start" />
+        android:textColor="@android:color/holo_green_dark"
+        android:textAppearance="?android:textAppearanceSmall"/>
 </RelativeLayout>

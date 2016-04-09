@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,7 +20,8 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="58dp"/>
+        android:layout_marginTop="?attr/actionBarSize"/>
+
     <LinearLayout
         android:id="@+id/array_tag"
         android:layout_width="match_parent"
@@ -32,10 +34,7 @@
         android:layout_centerVertical="true"
         android:background="@android:color/darker_gray">
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            style="@style/VerticalLinearLayout">
             <TextView
                 android:id="@+id/block11"
                 style="@style/PortraitCells" />
@@ -50,10 +49,7 @@
                 style="@style/PortraitCells" />
         </LinearLayout>
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            style="@style/VerticalLinearLayout">
             <TextView
                 android:id="@+id/block12"
                 style="@style/PortraitCells" />
@@ -68,10 +64,7 @@
                 style="@style/PortraitCells" />
         </LinearLayout>
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            style="@style/VerticalLinearLayout">
             <TextView
                 android:id="@+id/block13"
                 style="@style/PortraitCells" />
@@ -86,10 +79,7 @@
                 style="@style/PortraitCells" />
         </LinearLayout>
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            style="@style/VerticalLinearLayout">
             <TextView
                 android:id="@+id/block14"
                 style="@style/PortraitCells" />
@@ -127,12 +117,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Timer"
-        android:layout_above="@+id/new_game" />
+        android:layout_above="@+id/new_game"
+        android:textColor="@android:color/holo_red_light"
+        android:textAppearance="?android:textAppearanceSmall"/>
     <TextView
         android:id="@+id/iterations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Iterations"
         android:layout_alignParentRight="true"
-        android:layout_above="@+id/start" />
+        android:layout_above="@+id/start"
+        android:textColor="@android:color/holo_green_dark"
+        android:textAppearance="?android:textAppearanceSmall"/>
 </RelativeLayout>
