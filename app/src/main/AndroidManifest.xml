@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".models.RulesActivity"
-            android:label="@string/rules">
+            android:label="@string/action_rules"
+            android:theme="@style/AppTheme">
         </activity>
 
     </application>
