@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.gameoftag.models.RulesActivity;
 
 import static java.lang.Math.*;
 
@@ -44,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setLogo(R.drawable.number15_logo);
         setSupportActionBar(toolbar);
 
         timerText = (TextView) findViewById(R.id.timer);

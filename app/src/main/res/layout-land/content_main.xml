@@ -19,6 +19,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"/>
+    <TextView
+        android:id="@+id/timer"
+        android:layout_below="@id/main_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Timer"
+        android:textColor="@android:color/holo_red_light"
+        android:textAppearance="?android:textAppearanceSmall"/>
+    <TextView
+        android:id="@+id/iterations"
+        android:layout_below="@id/main_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Iterations"
+        android:layout_alignParentRight="true"
+        android:textColor="@android:color/holo_green_dark"
+        android:textAppearance="?android:textAppearanceSmall"/>
     <LinearLayout
         android:id="@+id/array_tag"
         android:layout_width="match_parent"
@@ -109,21 +126,4 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:onClick="resetOfTag"/>
-    <TextView
-        android:id="@+id/timer"
-        android:layout_above="@+id/new_game"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Timer"
-        android:textColor="@android:color/holo_red_light"
-        android:textAppearance="?android:textAppearanceSmall"/>
-    <TextView
-        android:id="@+id/iterations"
-        android:layout_above="@+id/start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Iterations"
-        android:layout_alignParentRight="true"
-        android:textColor="@android:color/holo_green_dark"
-        android:textAppearance="?android:textAppearanceSmall"/>
 </RelativeLayout>
