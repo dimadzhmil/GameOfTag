@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RulesActivity"
+            android:parentActivityName=".MainActivity"
             android:label="@string/action_rules"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

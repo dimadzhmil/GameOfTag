@@ -16,6 +16,7 @@
     <string name="freecell" translatable="false">\#</string>
     <string name="commoncell" translatable="false">\!?</string>
     <string name="action_rules">Rules</string>
+    <string name="action_about">About game</string>
     <string name="action_exit">Exit</string>
     <string name="back">Back</string>
     <string name="rules"><b>Fifteen Puzzle</b> - a puzzle, which is a 15 square tiles with applied numbers from 1 to 15. All the knuckles are enclosed in a square the size of 4x4 box (the box side of the square is four times longer than that of the knuckles). Thus when placing the tiles in one box remains empty space the size of a domino that can be used to move the tiles inside the box. The goal - to streamline the placement of the numbers in the box, placing them in ascending from left to right and top to bottom, starting with the knuckles with the number 1 in the top left corner and ending with the empty space in the bottom right corner of the box.</string>
