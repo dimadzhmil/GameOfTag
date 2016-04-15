@@ -101,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_rules) {
             Intent intent = new Intent(MainActivity.this, RulesActivity.class);
+            intent.putExtra("WIN_TIME", timerText.getText().toString());
+            intent.putExtra("WIN_STEPS", iterations);
             startActivity(intent);
             return true;
         }
@@ -109,8 +111,6 @@ public class MainActivity extends AppCompatActivity {
 //            intent.addCategory(Intent.CATEGORY_HOME);
 //            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //            startActivity(intent);
-            Intent intent = new Intent(MainActivity.this, RulesActivity.class);
-            startActivity(intent);
             finish();
         }
 
@@ -415,13 +415,17 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         if (isWinPossition) {
-            Toast.makeText(this, "You win!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "You win!", Toast.LENGTH_SHORT).show();
             timer.cancel();
             isTimeRunning = false;
             startTime = 0;
             changeEnabledButton(R.id.new_game);
             changeEnabledButton(R.id.start);
             changeTextHeader(R.id.main_text, R.string.header_win);
+            Intent intent = new Intent(MainActivity.this, WinActivity.class);
+            intent.putExtra("WIN_TIME", timerText.getText().toString());
+            intent.putExtra("WIN_STEPS", iterations);
+            startActivity(intent);
         }
     }
 
@@ -469,5 +473,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onClickInfo(View v) {
         Toast.makeText(this, "Some informatoins of the game", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this, NewActivity.class);
+        startActivity(intent);
     }
 }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.android.gameoftag.R;
 
@@ -19,13 +20,13 @@ public class RulesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rules);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-    //    toolbar.setLogo(R.drawable.number15_logo);
+        //    toolbar.setLogo(R.drawable.number15_logo);
         toolbar.setTitle(R.string.action_rules);
         toolbar.setSubtitle(R.string.action_about);
         setSupportActionBar(toolbar);
     }
-    public void onClickBack(View view) {
-        finish();
 
+    public void onClickBack(View view) {
+        onBackPressed();
     }
 }

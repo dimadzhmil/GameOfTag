@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="?attr/actionBarSize">
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/activity_horizontal_margin">
+
+
+    <ImageView
+        android:id="@+id/win_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/winner" />
+
+    <TextView
+        android:id="@+id/win_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/time"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="@android:color/holo_red_light"
+        android:layout_below="@id/win_image"/>
+
+    <TextView
+        android:id="@+id/win_steps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/steps"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="@android:color/holo_green_dark"
+        android:layout_below="@id/win_image"
+        android:layout_alignParentRight="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:onClick="onClickBack"
+        android:layout_below="@id/win_time"
+        android:text="@string/back" />
+</RelativeLayout>
+</ScrollView>

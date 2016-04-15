@@ -19,8 +19,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".RulesActivity"
-            android:parentActivityName=".MainActivity"
             android:label="@string/action_rules"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".WinActivity"
+            android:label="@string/action_rules"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".NewActivity"
+            android:label="@string/action_rules"
+            android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
